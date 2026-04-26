@@ -3,14 +3,10 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# MySQL connection
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    database="flat_finder"
-)
+import sqlite3
 
+# SQLite connection (creates file automatically)
+db = sqlite3.connect("database.db", check_same_thread=False)
 cursor = db.cursor()
 
 # Home Page
